@@ -60,13 +60,13 @@ const UserInfo = () => {
               <LeftInfo>
                 <Avatar
                   style={{ width: 80, height: 80 }}
-                  src={gistData.owner.avatar_url}
+                  src={gistData.owner ? gistData.owner.avatar_url : ""}
                 />
               </LeftInfo>
               <RightInfo>
                 <UserName>
                   <Title size="20px" weight="600">
-                    {gistData.owner.login}
+                    {gistData.owner ? gistData.owner.login : "Anonymous"}
                   </Title>
                   <Span size="12px" weight="200">
                     {format(new Date(gistData.created_at), "dd-MM-yyyy")}

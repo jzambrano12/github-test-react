@@ -74,7 +74,7 @@ const Home = () => {
               <TableBody>
                 {results.length > 0 ? (
                   results.map((row) => (
-                    <TableRow key={row.owner} hover>
+                    <TableRow key={row.id} hover>
                       <TableCell>
                         <Link to={`/${row.owner.login}/${row.id}`}>
                           <Button>
@@ -85,10 +85,12 @@ const Home = () => {
                       <TableCell scope="row">
                         <DirectionRow>
                           <Avatar
-                            alt={row.owner.login}
-                            src={row.owner.avatar_url}
+                            alt={row.owner ? row.owner.login : ""}
+                            src={row.owner ? row.owner.avatar_url : ""}
                           />
-                          <TableText>{row.owner.login}</TableText>
+                          <TableText>
+                            {row.owner ? row.owner.login : "Anonymous"}
+                          </TableText>
                         </DirectionRow>
                       </TableCell>
                       <TableCell scope="row">
